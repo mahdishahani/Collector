@@ -7,17 +7,18 @@ from fastapi import Depends, FastAPI
 from fastapi.responses import JSONResponse
 from sqlmodel.ext.asyncio.session import AsyncSession
 
-from ..business.response_handler import MessageResponseLogic
-from ..config.setup import settings
-from ..repository.data_adapter import DataOperationsRepository
-from ..repository.db import async_engine, get_async_session
-from ..repository.models import Invoices
-from ..tools.custom_logging import create_unified_logger
+from src.business.response_handler import MessageResponseLogic
+from src.config.setup import settings
+from src.repository.data_adapter import DataOperationsRepository
+from src.repository.db import async_engine, get_async_session
+from src.repository.models import Invoices
+from src.tools.custom_logging import create_unified_logger
 
 # Local modules
-from ..tools.rabbit_client import AbstractRobustConnection, RabbitClient
-from .api.documentation import description, license_info, servers, tags_metadata
-from .health_manager import HealthManager
+from src.tools.rabbit_client import AbstractRobustConnection, RabbitClient
+from src.web.api.documentation import description, license_info, servers, tags_metadata
+from src.web.health_manager import HealthManager
+
 
 # app = FastAPI()
 
