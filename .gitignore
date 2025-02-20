@@ -1,0 +1,46 @@
+# Compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+
+# Dependency directories
+env/
+lib/
+libs/
+bin/
+include/
+share/
+
+# Editor-specific files
+.idea/
+
+# Compiled output
+*.pyc
+
+# macOS-specific files
+.DS_Store
+
+# FastAPI automatic documentation directory
+docs/
+
+# Logs
+logs/
+
+# Environment variables file (if used)
+.env
+
+# Cached files (e.g., for Jupyter Notebook)
+.ipynb_checkpoints/
+
+# User-specific IDE settings
+.idea/*
+
+# Ignore Python egg files
+*.egg-info/
+
+.pre-commit-config.yaml
+.flake8

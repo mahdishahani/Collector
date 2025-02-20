@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  traefik:
+    image: traefik:v2.5
+    container_name: traefik
+    command:
+      - --api.insecure=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - "--api.insecure=true"
+      - --entrypoints.web.address=:80
+      - --entrypoints.redis.address=:6379
+      - --entrypoints.pgsql.address=:5432
+      - --entrypoints.prometheus.address=:9090
+      - --entrypoints.rabbitmq.address=:5672
+      - --entrypoints.mongodb.address=:27017
+    ports:
+      - "80:80"
+      - "8080:8080"
+      - "6379:6379"
+      - "5432:5432"
+      - "9090:9090"
+      - "5672:5672"
+      - "27017:27017"
+
+  whoami:
+    image: containous/whoami:v1.5.0
+    container_name: whoami
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`whoami.localhost`)"
+      - "traefik.http.routers.whoami.entrypoints=web"
